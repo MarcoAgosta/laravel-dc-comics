@@ -5,7 +5,9 @@
 
 <ul>
 @foreach ($comics as $comic)
-<li></li>
+<li>
+    {{$comic->title}}
+</li>
 @endforeach
 </ul>
 
