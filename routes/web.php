@@ -14,4 +14,6 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/products', [MainController::class, "index"])->name("comics.index");
+Route::get('/comics', [MainController::class, "index"])->name("comics.index");
+
+Route::get('/comics/{comic}', [MainController::class, "show"])->name("comics.show");
