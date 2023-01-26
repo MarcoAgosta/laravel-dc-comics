@@ -16,4 +16,8 @@ use App\Http\Controllers\MainController;
 
 Route::get('/comics', [MainController::class, "index"])->name("comics.index");
 
+Route::get("/comics/create", [MainController::class, "create"])->name("comics.create");
+
 Route::get('/comics/{comic}', [MainController::class, "show"])->name("comics.show");
+
+Route::post("/comics", [MainController::class, "store"])->name("comics.store");
