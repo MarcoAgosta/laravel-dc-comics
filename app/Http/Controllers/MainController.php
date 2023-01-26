@@ -14,7 +14,9 @@ class MainController extends Controller
      */
     public function index()
     {
-        //
+        $comics=Comics::all();
+
+        return view("comics.index", compact("comics"));
     }
 
     /**
