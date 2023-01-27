@@ -25,3 +25,5 @@ Route::post("/comics", [MainController::class, "store"])->name("comics.store");
 Route::get("/comics/{comic}/edit", [MainController::class, "edit"])->name("comics.edit"); 
 
 Route::put("/comics/{comic}", [MainController::class, "update"])->name("comics.update");
+
+Route::delete("/comics/{comic}", [MainController::class, "destroy"])->name("comics.destroy");
