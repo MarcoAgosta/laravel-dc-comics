@@ -72,7 +72,13 @@ class MainController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic=Comics::find($id);
+
+        if(!$comic){
+            abort(406, "Ritenta con un ID corretto");
+        };
+
+        return view("comics.edit", compact("comic"));
     }
 
     /**
@@ -84,7 +90,20 @@ class MainController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=$request->all();
+
+        $comic=Comics::findOrFail($id);
+        $comic->title=$data["title"];
+        $comic->description=$data['description'];
+        $comic->thumb=$data['thumb'];
+        $comic->price= (float) $data['price'];
+        $comic->series=$data['series'];
+        $comic->sale_date=$data['sale_date'];
+        $comic->type=$data['type'];
+        $comic->save();
+
+        return redirect()->route("comics.show", $comic->id);
+
     }
 
     /**
