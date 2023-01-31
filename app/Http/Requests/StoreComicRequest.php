@@ -33,4 +33,15 @@ class StoreComicRequest extends FormRequest
             "type"=>"required"
         ];
     }
+
+    public function messages()
+    {
+        return [
+            "title.required"=>"E' necessario inserire un titolo!",
+            "title.min"=>"Titolo troppo corto.",
+            "title.max"=>"Titolo troppo lungo.",
+            "price.required"=>"Il prezzo è obbligatorio",
+            "price.numeric"=>"Il prezzo deve essere un numero"
+        ];
+    }
 }
