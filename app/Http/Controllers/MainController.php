@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comics;
+use App\Http\Requests\StoreComicRequest;
 
 class MainController extends Controller
 {
@@ -35,9 +36,9 @@ class MainController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        $data=$request->all();
+        $data=$request->validated();
         $comic = new Comics();
         $comic->title=$data["title"];
         $comic->description=$data['description'];
